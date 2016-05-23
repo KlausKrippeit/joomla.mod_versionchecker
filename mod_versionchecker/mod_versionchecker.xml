@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.4" method="upgrade" client="administrator">
+  <name>VersionChecker</name>
+  <creationDate>23-May-2016</creationDate>
+  <author>Klaus Krippeit</author>
+  <authorEmail>klaus@krippeit.org</authorEmail>
+  <authorUrl>http://krippeit.org</authorUrl>
+  <copyright>KK</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>1.0.0</version>
+  <description>MOD_VERSIONCHECKER_DESCRIPTION</description>
+  <files folder="admin">
+    <folder>language</folder>
+    <folder>tmpl</folder>
+    <folder>css</folder>
+    <folder>js</folder>
+    <filename module="mod_versionchecker">mod_versionchecker.php</filename>
+    <filename module="mod_versionchecker">additem.php</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params" addfieldpath="/administrator/modules/mod_versionchecker">
+		<fieldset name="basic" label="Domaineinstellungen">    
+      		<field name="websites" type="additem" label="" description=""></field>
+    	</fieldset>
+    </fields>
+  </config>
+</extension>
