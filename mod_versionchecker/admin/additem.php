@@ -1,7 +1,7 @@
 <?php
 /**
  * @package    Joomla.Administrator
- * @subpackage versionchecker
+ * @subpackage mod_versionchecker
  * @author     Klaus Krippeit {@link http://www.krippeit.org}
  * @license    GNU/GPL
  */
@@ -31,6 +31,7 @@ class JFormFieldAddItem extends JFormField {
 		$items .= '<input type="text" class="url"';
 		$items .= ' value="' . $values[0]['url'] . '"';
 		$items .= ' name="'.$name.'[0][url]" >';
+		$items .= '<button class="btn delete"><span class="icon-unpublish"></span>'.JText::_('MOD_VERSIONCHECKER_REMOVE_DOMAIN').'</button>';
 		$items .= '</div>';
 
 		foreach( $values as $key => $value ){
@@ -39,6 +40,7 @@ class JFormFieldAddItem extends JFormField {
 				$items .= '<input type="text" class="url" ';
 				$items .= 'value="'.$values[$key]['url'].'" ';
 				$items .= 'name="'.$name.'['.$key.'][url]">';
+				$items .= '<button class="btn delete"><span class="icon-unpublish"></span>'.JText::_('MOD_VERSIONCHECKER_REMOVE_DOMAIN').'</button>';
 				$items .= '</div>';
 			}
 		}

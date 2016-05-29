@@ -1,7 +1,7 @@
 <?php
 /**
  * @package    Joomla.Administrator
- * @subpackage versionchecker
+ * @subpackage mod_versionchecker
  * @author     Klaus Krippeit {@link http://www.krippeit.org}
  * @license    GNU/GPL
  */
