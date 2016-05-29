@@ -19,9 +19,11 @@ foreach ($websites as $website) {
 	$websiteVersionFile = $website->url."/administrator/manifests/files/joomla.xml";
 
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	curl_setopt($ch, CURLOPT_VERBOSE, TRUE);
 	curl_setopt($ch, CURLOPT_POST, TRUE);
+	curl_setopt($ch, CURLOPT_HEADER, FALSE);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/xml"));
 	curl_setopt($ch, CURLOPT_URL, $websiteVersionFile);
 	$xmlresponse = curl_exec($ch);
 	$xmlWebsiteVersionFile = simplexml_load_string($xmlresponse);
@@ -38,10 +40,12 @@ foreach ($websites as $website) {
 	}
 
 	$status = str_replace($updateJoomlaVersion, "1", $websiteJoomlaVersion);
-
+	
+	$classStatus = $status == 1 ? "icon-publish" : "icon-unpublish";
 	$classLabelStatus = $status == 1 ? "label-success" : "label-important";
 	$htmlString  .= '<div class="row-fluid">';
 	$htmlString  .= '<div class="span9">';
+	$htmlString  .= "<span class=\"$classStatus\"></span>";
 	$htmlString  .=  "<strong class=\"row-title\">  $currentCMSVersionName</strong> <a href=\"$website->url\" target=\"blank\">$website->url</a> </div>";
 	$htmlString  .= "<div class='span3'>Version: <span class=\"label $classLabelStatus\">$websiteJoomlaVersion</span></div>";
 	$htmlString  .= '</div>';
