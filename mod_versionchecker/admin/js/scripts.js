@@ -11,7 +11,7 @@
 		
 		addBtns.each(function(btn,idx){
 			// Add a new item when clicked
-			$(idx).click(function(){
+			$(idx).click(function(event){
 				var template = $('#item-template'),
 				container =  $(this).parent(),
 				newItem = template.clone(),
